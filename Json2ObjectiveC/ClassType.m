@@ -19,6 +19,17 @@
     return self;
 }
 
+-(instancetype)initWithName:(NSString *)name value:(NSString *) value {
+    self = [super init];
+    if (self != nil) {
+        self.name = name;
+        self.value = value;
+        self.properties = [[NSMutableArray alloc] init];
+        self.propertyDic = [[NSMutableDictionary alloc] init];
+    }
+    return self;
+}
+
 -(void)addProperty:(Property *)property{
     if (property == nil) {
         return;
@@ -62,8 +73,15 @@
                 //发现数组形
                 propertyType = [propertyType substringWithRange:NSMakeRange(0, propertyType.length - 2)];
                 propertyType = [NSString stringWithFormat:@"NSArray<%@> *", propertyType];
+            } else if ([propertyTypeTmp rangeOfString:@"Class"].location != NSNotFound) {
+
+            } else {
+
             }
 
+        } else {
+            NSString *zsStr = [NSString stringWithFormat:@"/* %@ */ \n", property.value];
+            interface = [interface stringByAppendingString:zsStr];
         }
         NSString *pStr = [NSString stringWithFormat:@"@property (nonatomic, %@) %@ %@;\n", secondType, propertyType, property.name];
         interface = [interface stringByAppendingString:pStr];

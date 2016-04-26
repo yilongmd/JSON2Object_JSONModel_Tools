@@ -83,13 +83,13 @@
             property = [[Property alloc]
                         initWithName:key
                         type:DICTIONARY
-                        classType:propertyClass];
+                        classType:propertyClass value:(NSString *)value];
         }
         else if([value isKindOfClass:[NSArray class]]){
             propertyClass = [[key stringByAppendingString:@"List"] stringByAppendingString:@"Class"];
             NSString *strCName = [NSString stringWithFormat:@"_%@",name];
             propertyClass = [propertyClass stringByAppendingString:strCName];
-            property = [[Property alloc] initWithName:key type:ARRAY classType:propertyClass];
+            property = [[Property alloc] initWithName:key type:ARRAY classType:propertyClass value:(NSString *)value];
             if ([value count] > 0) {
                 for (id obj in value) {
                     if ([obj isKindOfClass:[NSDictionary class]]) {
@@ -106,10 +106,10 @@
         {
             if([value isKindOfClass:[NSString class]])
             {
-                property = [[Property alloc] initWithName:key type:STRING classType:nil];
+                property = [[Property alloc] initWithName:key type:STRING classType:nil value:(NSString *)value];
             }
             if ([value isKindOfClass:[NSNumber class]]) {
-                property = [[Property alloc] initWithName:key type:NUMBER classType:nil];
+                property = [[Property alloc] initWithName:key type:NUMBER classType:nil value:(NSString *)value];
             }
         }
         [newClass addProperty:property];

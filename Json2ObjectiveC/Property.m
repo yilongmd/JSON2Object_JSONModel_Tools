@@ -11,11 +11,12 @@
 @implementation Property
 - (instancetype)initWithName:(NSString *)name
                         type:(enum PropertyType)type
-                   classType:(NSString *)cType {
+                   classType:(NSString *)cType value:(NSString *) cvalue {
     self = [super init];
     if (self != nil) {
         self.name = name;
         self.pType = type;
+        self.value = cvalue;
         if (cType != nil) {
             self.classType = cType;
         }

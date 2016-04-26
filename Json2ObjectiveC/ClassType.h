@@ -13,9 +13,13 @@
 @interface ClassType : NSObject
 @property (nonatomic, strong) NSMutableArray *properties;
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *value;
 @property (nonatomic, strong) NSMutableDictionary *propertyDic;
 
 -(instancetype)initWithName:(NSString *)name;
+
+- (instancetype)initWithName:(NSString *)name value:(NSString *)value;
+
 -(void)addProperty:(Property *)property;
 /**
  *  test

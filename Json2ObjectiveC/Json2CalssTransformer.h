@@ -21,4 +21,6 @@
 - (void)transformData:(NSData *)data rootObject:(NSString *)strRootobject;
 
 -(void)printResult;
+
+- (NSString *)createClass:(NSDictionary *)dict name:(NSString *)name;
 @end
