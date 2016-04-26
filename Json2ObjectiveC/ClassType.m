@@ -76,7 +76,8 @@
             } else if ([propertyTypeTmp rangeOfString:@"Class"].location != NSNotFound) {
 
             } else {
-
+                NSString *zsStr = [NSString stringWithFormat:@"/* %@ */ \n", property.value];
+                interface = [interface stringByAppendingString:zsStr];
             }
 
         } else {
