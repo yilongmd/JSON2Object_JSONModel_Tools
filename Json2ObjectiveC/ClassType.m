@@ -114,7 +114,7 @@
         }
     }
     implement = [implement stringByAppendingString:dicStr];
-    implement = [implement stringByAppendingString:@"\n};\n}"];
+    implement = [implement stringByAppendingString:@"\n}];\n}"];
     implement = [implement stringByAppendingString:transformerFuncs];
     implement = [implement stringByAppendingString:@"@end"];
     return implement;
